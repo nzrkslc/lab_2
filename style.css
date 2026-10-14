@@ -1,0 +1,92 @@
+/* --- 1. Скинути та налаштувати блокову модель (Box Model) --- */
+* {
+  box-sizing: border-box; /* Управління блоковою моделлю */
+  margin: 0;
+  padding: 0;
+}
+
+/* --- 2. Селектор тегу --- */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f8fafc;
+  color: #1e293b;
+  padding: 20px;
+}
+
+/* --- 3. Селектор ID --- */
+#main-header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+#main-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* --- 4. Селектор класу та Flexbox / Grid макет --- */
+.container {
+  display: grid; /* Макет на CSS Grid */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 20px; /* Padding з блокової моделі */
+  border: 1px solid #e2e8f0; /* Border з блокової моделі */
+  border-radius: 8px;
+  margin-bottom: 10px; /* Margin з блокової моделі */
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2563eb;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+/* --- 5. Селектори атрибутів --- */
+a[target="_blank"] {
+  font-weight: bold;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  outline: none;
+}
+
+/* --- 6. Псевдокласи --- */
+/* Псевдоклас 1: :hover */
+.btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Псевдоклас 2: :focus */
+input[type="text"]:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* --- 7. Медіазапит для адаптивності на вузьких екранах --- */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* Перемикаємо макет у 1 колонку на мобільних */
+  }
+
+  body {
+    padding: 10px;
+  }
+}

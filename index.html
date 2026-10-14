@@ -3,14 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Резюме студента кафедри захисту інформації (F5 Кібербезпека) НУ «Львівська політехніка»">
+    <meta name="description" content="Резюме студента кафедри захисту інформації (Ф5 Кібербезпека) НУ «Львівська політехніка»">
     <meta name="author" content="Назар Кисилиця">
     <title>Резюме | Назар Кисилиця</title>
+
+    <!-- 1. Зовнішнє підключення CSS (External) -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- 2. Внутрішнє підключення CSS (Internal) -->
+    <style>
+        .specialty-badge {
+            background-color: #dbeafe;
+            color: #1e40af;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 6px;
+        }
+    </style>
 </head>
 <body>
-    <header>
+    <!-- 3. Вбудоване підключення CSS (Inline) -->
+    <header style="border-top: 4px solid #2563eb;">
         <h1>Назар Кисилиця</h1>
-        <p><strong>Спеціальність / Профіль:</strong> 125 Кібербезпека та захист інформації (F5) | Trainee Web & Cybersecurity</p>
+        <p><strong>Спеціальність / Профіль:</strong> <span class="specialty-badge">125 Кібербезпека та захист інформації (F5)</span> | Trainee Web & Cybersecurity</p>
         <address>
             <p>Email: <a href="mailto:nazar.kysylytsia.kb.2025@lpnu.ua">nazar.kysylytsia.kb.2025@lpnu.ua</a></p>
             <p>Місто: Львів, Україна</p>
@@ -20,8 +37,8 @@
 
     <hr>
 
-    <main>
-        <section id="about">
+    <main class="grid-container">
+        <section id="about" class="card">
             <h2>Про мене</h2>
             <p>
                 Студент Національного університету «Львівська політехніка» спеціальності 125 «Кібербезпека» (F5).
@@ -30,7 +47,7 @@
             </p>
         </section>
 
-        <section id="skills">
+        <section id="skills" class="card">
             <h2>Технічні навички</h2>
             <ul>
                 <li><strong>Вебтехнології:</strong> HTML5 (семантична розмітка), CSS3, JavaScript (ES6+)</li>
@@ -40,7 +57,7 @@
             </ul>
         </section>
 
-        <section id="education">
+        <section id="education" class="card">
             <h2>Освіта</h2>
             <article>
                 <h3>Національний університет «Львівська політехніка»</h3>
@@ -50,7 +67,7 @@
             </article>
         </section>
 
-        <section id="experience">
+        <section id="experience" class="card">
             <h2>Досвід та навчальні проєкти</h2>
             <article>
                 <h3>Навчальні проєкти з технологій вебпрограмування</h3>
@@ -67,7 +84,7 @@
     <hr>
 
     <footer>
-        <p>&copy; 2026 Назар Кисилиця. Усі права захищено. Створено в рамках Лабораторної роботи №2.</p>
+        <p>&copy; 2026 Назар Кисилиця. Усі права захищено. Створено в рамках Лабораторної роботи №3.</p>
     </footer>
 </body>
 </html>
