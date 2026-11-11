@@ -12,20 +12,77 @@ body {
   background-color: #f8fafc;
   color: #1e293b;
   padding: 20px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 20px auto;
+  max-width: 1000px;
 }
 
 /* --- 3. Селектор ID --- */
 #main-header {
-  text-align: center;
-  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: 0 auto 20px;
+  padding: 1.5rem 1.75rem;
   background-color: #ffffff;
-  margin-bottom: 20px;
-  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.header-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.header-address {
+  font-style: normal;
+  margin-top: 12px;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.header-address a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.header-address a:hover {
+  text-decoration: underline;
 }
 
 #main-content {
   max-width: 1000px;
   margin: 0 auto;
+}
+
+#main-footer {
+  max-width: 1000px;
+  margin: 24px auto 0;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.footer-copy {
+  text-align: center;
+  margin-bottom: 16px;
+  font-weight: 500;
 }
 
 /* --- 4. Селектор класу та Flexbox / Grid макет --- */
@@ -43,15 +100,58 @@ body {
   margin-bottom: 10px; /* Margin з блокової моделі */
 }
 
+.card h2 {
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #0f172a;
+}
+
+.card h3 {
+  margin-bottom: 6px;
+  color: #1e293b;
+}
+
+.card ul {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.card li {
+  margin-bottom: 6px;
+}
+
+.card-full {
+  grid-column: 1 / -1;
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 14px;
+}
+
 .btn {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px 18px;
   background-color: #2563eb;
-  color: white;
+  color: #ffffff;
   text-decoration: none;
   border-radius: 6px;
   border: none;
-  transition: background-color 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.btn-secondary {
+  background-color: #e2e8f0;
+  color: #1e293b;
+}
+
+.btn-secondary:hover {
+  background-color: #cbd5e1;
 }
 
 /* --- 5. Селектори атрибутів --- */
@@ -59,13 +159,20 @@ a[target="_blank"] {
   font-weight: bold;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
   width: 100%;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 10px 12px;
+  margin-top: 6px;
   border: 1px solid #cbd5e1;
   border-radius: 6px;
   outline: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+  color: #1e293b;
 }
 
 /* --- 6. Псевдокласи --- */
@@ -74,10 +181,236 @@ input[type="text"] {
   background-color: #1d4ed8;
 }
 
+.btn-secondary:hover {
+  background-color: #cbd5e1;
+}
+
 /* Псевдоклас 2: :focus */
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* --- Відгуки роботодавців --- */
+.reviews-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.review-card {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #2563eb;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.review-card-header {
+  margin-bottom: 8px;
+}
+
+.review-card-header h3 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  text-transform: capitalize;
+}
+
+.review-email {
+  font-size: 0.85rem;
+  color: #2563eb;
+  word-break: break-all;
+}
+
+.review-body {
+  font-size: 0.92rem;
+  color: #334155;
+}
+
+.status-text {
+  color: #64748b;
+  font-style: italic;
+}
+
+.error-text {
+  color: #dc2626;
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* --- Дані localStorage у футері --- */
+.system-info-section h3 {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.system-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 8px;
+}
+
+.system-info-item {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 0.82rem;
+  word-break: break-word;
+}
+
+.system-info-item strong {
+  color: #0f172a;
+}
+
+/* --- Модальне вікно --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 1000;
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  color: #1e293b;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: #0f172a;
+}
+
+.modal-subtitle {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* --- Нічний режим (Dark Mode) --- */
+body.dark-mode {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+body.dark-mode hr {
+  border-top-color: #334155;
+}
+
+body.dark-mode #main-header,
+body.dark-mode .card,
+body.dark-mode #main-footer,
+body.dark-mode .modal-content {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+
+body.dark-mode .card h2,
+body.dark-mode .card h3,
+body.dark-mode .system-info-section h3,
+body.dark-mode .system-info-item strong {
+  color: #f8fafc;
+  border-bottom-color: #334155;
+}
+
+body.dark-mode .header-address,
+body.dark-mode .section-subtitle,
+body.dark-mode .modal-subtitle,
+body.dark-mode #main-footer,
+body.dark-mode .status-text {
+  color: #94a3b8;
+}
+
+body.dark-mode .header-address a,
+body.dark-mode .review-email {
+  color: #60a5fa;
+}
+
+body.dark-mode .review-card,
+body.dark-mode .system-info-item {
+  background-color: #0f172a;
+  border-color: #334155;
+}
+
+body.dark-mode .review-body {
+  color: #cbd5e1;
+}
+
+body.dark-mode .btn-secondary {
+  background-color: #334155;
+  color: #f8fafc;
+}
+
+body.dark-mode .btn-secondary:hover {
+  background-color: #475569;
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="email"],
+body.dark-mode input[type="tel"],
+body.dark-mode textarea {
+  background-color: #0f172a;
+  border-color: #475569;
+  color: #f8fafc;
+}
+
+body.dark-mode .modal-close {
+  color: #94a3b8;
+}
+
+body.dark-mode .modal-close:hover {
+  color: #f8fafc;
 }
 
 /* --- 7. Медіазапит для адаптивності на вузьких екранах --- */

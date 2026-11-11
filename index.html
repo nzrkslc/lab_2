@@ -8,7 +8,7 @@
     <title>Резюме | Назар Кисилиця</title>
 
     <!-- 1. Зовнішнє підключення CSS (External) -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- 2. Внутрішнє підключення CSS (Internal) -->
     <style>
@@ -21,14 +21,35 @@
             display: inline-block;
             margin-top: 6px;
         }
+
+        body.dark-mode .specialty-badge {
+            background-color: #1e3a8a;
+            color: #bfdbfe;
+        }
     </style>
 </head>
 <body>
     <!-- 3. Вбудоване підключення CSS (Inline) -->
-    <header style="border-top: 4px solid #2563eb;">
-        <h1>Назар Кисилиця</h1>
-        <p><strong>Спеціальність / Профіль:</strong> <span class="specialty-badge">125 Кібербезпека та захист інформації (F5)</span> | Trainee Web & Cybersecurity</p>
-        <address>
+    <header id="main-header" style="border-top: 4px solid #2563eb;">
+        <div class="header-top">
+            <div>
+                <h1>Назар Кисилиця</h1>
+                <p>
+                    <strong>Спеціальність / Профіль:</strong>
+                    <span class="specialty-badge">125 Кібербезпека та захист інформації (F5)</span> | Trainee Web &amp; Cybersecurity
+                </p>
+            </div>
+            <nav class="header-controls" aria-label="Керування сторінкою">
+                <button id="theme-toggle" class="btn btn-theme" type="button" aria-pressed="false">
+                    🌙 Нічна тема
+                </button>
+                <button id="open-contact-btn" class="btn btn-secondary" type="button">
+                    Зворотний зв’язок
+                </button>
+            </nav>
+        </div>
+
+        <address class="header-address">
             <p>Email: <a href="mailto:nazar.kysylytsia.kb.2025@lpnu.ua">nazar.kysylytsia.kb.2025@lpnu.ua</a></p>
             <p>Місто: Львів, Україна</p>
             <p>GitHub: <a href="https://github.com/nzrkslc" target="_blank" rel="noopener noreferrer">github.com/nzrkslc</a></p>
@@ -37,7 +58,7 @@
 
     <hr>
 
-    <main class="grid-container">
+    <main id="main-content" class="container">
         <section id="about" class="card">
             <h2>Про мене</h2>
             <p>
@@ -79,12 +100,66 @@
                 </ul>
             </article>
         </section>
+
+        <section id="reviews" class="card card-full">
+            <h2>Коментарі попередніх роботодавців</h2>
+            <p class="section-subtitle">
+                Дані завантажено асинхронно через Fetch API з JSONPlaceholder (варіант №13).
+            </p>
+            <div id="reviews-container" class="reviews-list" aria-live="polite">
+                <p class="status-text">Завантаження коментарів...</p>
+            </div>
+        </section>
     </main>
 
     <hr>
 
-    <footer>
-        <p>&copy; 2026 Назар Кисилиця. Усі права захищено. Створено в рамках Лабораторної роботи №3.</p>
+    <footer id="main-footer">
+        <p class="footer-copy">&copy; 2026 Назар Кисилиця. Усі права захищено. Створено в рамках Лабораторної роботи №4.</p>
+        <section class="system-info-section" aria-label="Інформація про систему та браузер">
+            <h3>Інформація з localStorage (ОС та браузер)</h3>
+            <div id="local-storage-info" class="system-info-grid"></div>
+        </section>
     </footer>
+
+    <!-- Модальне вікно форми зворотного зв'язку -->
+    <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Зворотний зв’язок</h2>
+                <button id="close-modal-btn" class="modal-close" type="button" aria-label="Закрити модальне вікно">&times;</button>
+            </div>
+            <p class="modal-subtitle">Заповніть форму нижче, щоб надіслати повідомлення на електронну пошту.</p>
+
+            <form id="contact-form" action="https://formspree.io/f/xzerpoog" method="POST">
+                <div class="form-group">
+                    <label for="contact-name">Ім’я</label>
+                    <input type="text" id="contact-name" name="name" placeholder="Введіть ваше ім’я" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-email">Email</label>
+                    <input type="email" id="contact-email" name="email" placeholder="example@domain.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-phone">Номер телефону</label>
+                    <input type="tel" id="contact-phone" name="phone" placeholder="+380 XX XXX XX XX" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-message">Повідомлення</label>
+                    <textarea id="contact-message" name="message" rows="4" placeholder="Текст повідомлення у довільній формі..." required></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn">Надіслати</button>
+                    <button type="button" id="cancel-modal-btn" class="btn btn-secondary">Закрити</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
